@@ -31,7 +31,7 @@ class Main:
         self.lock.release()
 
     def ReadConfig(self):
-        with open('configs.json','r') as f:
+        with open('configs.json', 'r') as f:
             config = json.load(f)
         return config
 
@@ -41,7 +41,7 @@ class Main:
             return content
 
     def GetRandomProxy(self):
-        proxies_file = self.ReadFile('proxies.txt','r')
+        proxies_file = self.ReadFile('proxies.txt', 'r')
         proxies = {}
         if self.proxy_type == 1:
             proxies = {
@@ -61,7 +61,7 @@ class Main:
         return proxies
 
     def GetRandomUserAgent(self):
-        useragents = self.ReadFile('useragents.txt','r')
+        useragents = self.ReadFile('useragents.txt', 'r')
         return choice(useragents)
 
     def TitleUpdate(self):
@@ -73,12 +73,14 @@ class Main:
         init(convert=True)
         self.clear()
         self.SetTitle('One Man Builds TikTok Username Checker ^& Generator')
-        self.title = Style.BRIGHT+Fore.RED+"""                                        
+        self.title = Style.BRIGHT+Fore.LIGHTRED+"""                                        
                           ╔═════════════════════════════════════════════════════════════════════╗
                              ╔╦╗╦╦╔═╔╦╗╔═╗╦╔═  ╦ ╦╔═╗╔═╗╦═╗╔╗╔╔═╗╔╦╗╔═╗  ╔═╗╦ ╦╔═╗╔═╗╦╔═╔═╗╦═╗
                               ║ ║╠╩╗ ║ ║ ║╠╩╗  ║ ║╚═╗║╣ ╠╦╝║║║╠═╣║║║║╣   ║  ╠═╣║╣ ║  ╠╩╗║╣ ╠╦╝
                               ╩ ╩╩ ╩ ╩ ╚═╝╩ ╩  ╚═╝╚═╝╚═╝╩╚═╝╚╝╩ ╩╩ ╩╚═╝  ╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝╩╚═
-                          ╚═════════════════════════════════════════════════════════════════════╝                                         
+                          ╚═════════════════════════════════════════════════════════════════════╝   
+                          
+                          Made By: Z1c6                                      
         """
         print(self.title)
 
@@ -129,7 +131,7 @@ class Main:
                     name = self.GenName(username_length,include_digits,case,prefix,suffix)
                     Thread(target=self.TikTokUsernameCheck,args=(name,)).start()
         else:
-            usernames = self.ReadFile('usernames.txt','r')
+            usernames = self.ReadFile('usernames.txt', 'r')
             for username in usernames:
                 Run = True
                 while Run:
